@@ -2,7 +2,15 @@ import gleam/string
 import gleam/io
 import gleam/list
 
-// TODO: document
+/// Convert a string to a `snake_case`.
+///
+/// # Examples
+///
+/// ```gleam
+/// snake_case("Hello World")
+/// // -> "hello_world"
+/// ```
+///
 pub fn snake_case(text: String) -> String {
   text
   |> split_words
@@ -10,7 +18,15 @@ pub fn snake_case(text: String) -> String {
   |> string.lowercase
 }
 
-// TODO: document
+/// Convert a string to a `camelCase`.
+///
+/// # Examples
+///
+/// ```gleam
+/// camel_case("Hello World")
+/// // -> "helloWorld"
+/// ```
+///
 pub fn camel_case(text: String) -> String {
   text
   |> split_words
@@ -23,7 +39,15 @@ pub fn camel_case(text: String) -> String {
   |> string.concat
 }
 
-// TODO: document
+/// Convert a string to a `PascalCase`.
+///
+/// # Examples
+///
+/// ```gleam
+/// pascal_case("Hello World")
+/// // -> "HelloWorld"
+/// ```
+///
 pub fn pascal_case(text: String) -> String {
   text
   |> split_words
@@ -31,7 +55,15 @@ pub fn pascal_case(text: String) -> String {
   |> string.concat
 }
 
-// TODO: document
+/// Convert a string to a `kebab-case`.
+///
+/// # Examples
+///
+/// ```gleam
+/// kabab_case("Hello World")
+/// // -> "hello-world
+/// ```
+///
 pub fn kebab_case(text: String) -> String {
   text
   |> split_words
@@ -39,7 +71,15 @@ pub fn kebab_case(text: String) -> String {
   |> string.lowercase
 }
 
-// TODO: document
+/// Convert a string to a `Sentence case`.
+///
+/// # Examples
+///
+/// ```gleam
+/// sentence_case("hello-world")
+/// // -> "Hello world
+/// ```
+///
 pub fn sentence_case(text: String) -> String {
   text
   |> split_words
