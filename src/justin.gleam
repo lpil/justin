@@ -1,5 +1,4 @@
 import gleam/string
-import gleam/io
 import gleam/list
 
 /// Convert a string to a `snake_case`.
@@ -114,7 +113,6 @@ fn split(
     | [" ", ..in] -> split(in, False, "", add(words, word))
 
     [g, ..in] -> {
-      io.println(string.inspect(#(g, is_upper(g))))
       case is_upper(g) {
         // Lowercase, not a new word
         False -> split(in, False, word <> g, words)
