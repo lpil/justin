@@ -1,5 +1,5 @@
-import gleeunit
 import gleam/list
+import gleeunit
 import justin
 
 pub fn main() {
@@ -10,6 +10,7 @@ const snake_cases = [
   #("", ""),
   #("snake case", "snake_case"),
   #("snakeCase", "snake_case"),
+  #("SNAKECase", "snake_case"),
   #("Snake-Case", "snake_case"),
   #("Snake_Case", "snake_case"),
   #("SnakeCase", "snake_case"),
@@ -28,6 +29,7 @@ const camel_cases = [
   #("snake case", "snakeCase"),
   #("snakeCase", "snakeCase"),
   #("Snake-Case", "snakeCase"),
+  #("SNAKECase", "snakeCase"),
   #("Snake_Case", "snakeCase"),
   #("SnakeCase", "snakeCase"),
   #("Snake.Case", "snakeCase"),
@@ -44,6 +46,7 @@ const pascal_cases = [
   #("", ""),
   #("snake case", "SnakeCase"),
   #("snakeCase", "SnakeCase"),
+  #("SNAKECase", "SnakeCase"),
   #("Snake-Case", "SnakeCase"),
   #("Snake_Case", "SnakeCase"),
   #("SnakeCase", "SnakeCase"),
@@ -61,6 +64,7 @@ const kebab_cases = [
   #("", ""),
   #("snake case", "snake-case"),
   #("snakeCase", "snake-case"),
+  #("SNAKECase", "snake-case"),
   #("Snake-Case", "snake-case"),
   #("Snake_Case", "snake-case"),
   #("SnakeCase", "snake-case"),
@@ -78,6 +82,7 @@ const sentence_cases = [
   #("", ""),
   #("snake case", "Snake case"),
   #("snakeCase", "Snake case"),
+  #("SNAKECase", "Snake case"),
   #("Snake-Case", "Snake case"),
   #("Snake_Case", "Snake case"),
   #("SnakeCase", "Snake case"),

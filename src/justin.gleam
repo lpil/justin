@@ -1,6 +1,6 @@
-import gleam/string
 import gleam/io
 import gleam/list
+import gleam/string
 
 /// Convert a string to a `snake_case`.
 ///
@@ -114,13 +114,33 @@ fn split(
     | [" ", ..in] -> split(in, False, "", add(words, word))
 
     [g, ..in] -> {
-      io.println(string.inspect(#(g, is_upper(g))))
       case is_upper(g) {
         // Lowercase, not a new word
         False -> split(in, False, word <> g, words)
-
-        // Uppercase and inside an uppercase word, not a new word
-        True if up -> split(in, up, word <> g, words)
+        // Uppercase and inside an uppercase word
+        True if up -> {
+          case in {
+            []
+            | ["\n", ..]
+            | ["\t", ..]
+            | ["!", ..]
+            | ["?", ..]
+            | ["#", ..]
+            | [".", ..]
+            | ["-", ..]
+            | ["_", ..]
+            | [" ", ..] -> split(in, up, word <> g, words)
+            [nxt, ..] -> {
+              case is_upper(nxt) {
+                True -> split(in, up, word <> g, words)
+                // It's a new word if the next letter is lowercase
+                False -> {
+                  split(in, False, g, add(words, word))
+                }
+              }
+            }
+          }
+        }
 
         // Uppercase otherwise, a new word
         True -> split(in, True, g, add(words, word))
