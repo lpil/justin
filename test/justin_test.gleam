@@ -1,5 +1,5 @@
-import gleeunit
 import gleam/list
+import gleeunit
 import justin
 
 pub fn main() {

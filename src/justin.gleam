@@ -1,5 +1,5 @@
-import gleam/string
 import gleam/list
+import gleam/string
 
 /// Convert a string to a `snake_case`.
 ///
